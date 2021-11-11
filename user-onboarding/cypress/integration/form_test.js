@@ -25,4 +25,7 @@ describe('User onboarding app', () => {
         passwordInput().type('calvo');
         passwordInput().should('be.value','calvo');
     })
+    it('Terms checkboxes functionality', () => {
+        termsInput().click({multiple: true});
+    })
 })
