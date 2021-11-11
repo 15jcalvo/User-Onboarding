@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import axios from 'axios'
 import Form from './Form';
@@ -17,10 +17,12 @@ const initialFormErrors = {
   password: '',
   terms: '', 
 }
+const initialDisabled = true;
 
 export default function App() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [disabled, setDisabled] = useState(initialDisabled);
 
   const postNewUser = newUser => {
     axios.post('https://reqres.in/api/users', newUser)
@@ -60,7 +62,10 @@ export default function App() {
     setFormValues(initialFormValues);
     postNewUser(newUser);
   }
-  
+  useEffect(() => {
+    schema.isValid(formValues).then(valid => setDisabled(!valid));
+  }, [formValues])
+
   return (
     <div className="App">
       <Form 
@@ -68,6 +73,7 @@ export default function App() {
       change={inputChange}
       submit={formSubmit}
       errors={formErrors}
+      disabled={disabled}
       />
     </div>
   );

@@ -6,6 +6,7 @@ export default function Form(props) {
         submit,
         change,
         errors,
+        disabled,
       } = props
     const onSubmit = evt => {
         evt.preventDefault()
@@ -70,7 +71,7 @@ export default function Form(props) {
                     checked={values.terms === 'no'}
                     />
                 </label>
-                <button>submit</button>
+                <button disabled={disabled}>submit</button>
             </div>
         </form>
     )
