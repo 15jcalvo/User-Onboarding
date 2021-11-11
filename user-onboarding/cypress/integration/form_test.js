@@ -22,7 +22,7 @@ describe('User onboarding app', () => {
         emailInput().should('be.value','james@james.com');
     })
     it('Password input functionality', () => {
-        emailInput().type('calvo');
-        emailInput().should('be.value','calvo');
+        passwordInput().type('calvo');
+        passwordInput().should('be.value','calvo');
     })
 })
