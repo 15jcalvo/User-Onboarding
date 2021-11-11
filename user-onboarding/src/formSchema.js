@@ -17,6 +17,7 @@ const formSchema = yup.object().shape({
         .min(3, 'Password must be 3 characters'),
     terms: yup
         .string()
+        .min(3, 'Must accept terms') //not best way to do this im sure
         .required('Must accept terms'),
 })
 

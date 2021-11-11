@@ -5,6 +5,7 @@ export default function Form(props) {
         values,
         submit,
         change,
+        errors,
       } = props
     const onSubmit = evt => {
         evt.preventDefault()
@@ -16,10 +17,17 @@ export default function Form(props) {
         const realValue = type === 'checkbox' ? checked : value;
         change(name, realValue)
       }
+      //study in depth on onChange is working
     return (
         <form className ='form-container' onSubmit={onSubmit}>
             <div className='form-inputs'>
                 <h1>New User</h1>
+                <div className='errors'>
+                    <div>{errors.name}</div>
+                    <div>{errors.email}</div>
+                    <div>{errors.password}</div>
+                    <div>{errors.terms}</div>
+                </div>
                 <label>Name
                     <input 
                     type="text"
@@ -59,6 +67,7 @@ export default function Form(props) {
                     name="terms"
                     value="no"
                     onChange={onChange}
+                    checked={values.terms === 'no'}
                     />
                 </label>
                 <button>submit</button>
