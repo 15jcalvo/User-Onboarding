@@ -12,6 +12,7 @@ describe('User onboarding app', () => {
     const emailInput = () => cy.get('input[name=email]');
     const passwordInput = () => cy.get('input[name=password]');
     const termsInput = () => cy.get('input[name=terms]');
+    const submitBtn = () => cy.get('button[id="submitBtn"')
 
     it('Name input functionality', () => {
         nameInput().type('James');
@@ -27,5 +28,12 @@ describe('User onboarding app', () => {
     })
     it('Terms checkboxes functionality', () => {
         termsInput().click({multiple: true});
+    })
+    it('Submit button functionality', () => {
+        nameInput().type('James');
+        emailInput().type('james@james.com');
+        passwordInput().type('calvo');
+        termsInput().first().click();
+        submitBtn().click();
     })
 })

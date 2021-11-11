@@ -71,7 +71,7 @@ export default function Form(props) {
                     checked={values.terms === 'no'}
                     />
                 </label>
-                <button disabled={disabled}>submit</button>
+                <button id='submitBtn' disabled={disabled}>submit</button>
             </div>
         </form>
     )
