@@ -38,7 +38,7 @@ export default function Form(props) {
                 </label>
                 <label>Password
                     <input 
-                    type="text"
+                    type="password"
                     name="password"
                     value={values.password}
                     onChange={onChange}
@@ -59,7 +59,6 @@ export default function Form(props) {
                     name="terms"
                     value="no"
                     onChange={onChange}
-                    checked={values.terms === 'no'}
                     />
                 </label>
                 <button>submit</button>

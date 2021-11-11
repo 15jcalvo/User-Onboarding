@@ -25,6 +25,8 @@ export default function App() {
       password: formValues.password.trim(),
       terms: formValues.terms.trim(),
     }
+    console.log(newUser);
+    setFormValues(initialFormValues);
   }
   return (
     <div className="App">
